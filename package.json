@@ -1,0 +1,19 @@
+{
+  "name": "ejercicios-entrega-obligatoria",
+  "version": "1.0.0",
+  "description": "\u0016Ejercicios de Programacion con entrega obligatoria II cuatrimestre",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eSalazar84/Ejercicios-Entrega-Obligatoria.git"
+  },
+  "author": "Emiliano Salazar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eSalazar84/Ejercicios-Entrega-Obligatoria/issues"
+  },
+  "homepage": "https://github.com/eSalazar84/Ejercicios-Entrega-Obligatoria#readme"
+}
