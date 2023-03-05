@@ -10,7 +10,7 @@ export class Matrix {
     this.elementosEjeY = elemEjeY;
   }
   getValue(x: number, y: number): string {
-    if (x > this.elementosEjeX || y > this.elementosEjeY) {
+    if (x > this.elementosEjeX || y > this.elementosEjeY || x,y <= 0) {
       return `Los valores estan por fuera de la Matriz, intente con otros valores`;
     } else {
       let mtrx: number[][] = [[]];
@@ -26,7 +26,7 @@ export class Matrix {
   }
 }
 
-const matrix_ejemplo: Matrix = new Matrix(8, 6);
-console.log(matrix_ejemplo.getValue(7,5));
+const matrix_ejemplo: Matrix = new Matrix(8,6);
+console.log(matrix_ejemplo.getValue(1,1));
 
 
