@@ -1,49 +1,47 @@
-
 [
     {
         "brand": "Peugeot",
-        "model": 206,    
+        "model": 206,
         "year": 2012
     },
     {
         "brand": "Ford",
-        "model": "Ecosport",    
+        "model": "Ecosport",
         "year": 2008
     },
     {
         "brand": "Chevrolet",
-        "model": "Corsa",    
+        "model": "Corsa",
         "year": 2014
     },
     {
         "brand": "Audi",
-        "model": "A4",    
+        "model": "A4",
         "year": 2020
     },
     {
         "brand": "Volskwagen",
-        "model": "Gol",    
+        "model": "Gol",
         "year": 2023
     },
     {
         "brand": "Citroen",
-        "model": "Xara",    
+        "model": "Xara",
         "year": 2002
     },
     {
         "brand": "Ford",
-        "model": "Ka",    
+        "model": "Ka",
         "year": 2016
     },
     {
         "brand": "Mercedes Benz",
-        "model": "Clase A",    
+        "model": "Clase A",
         "year": 2018
     },
     {
         "brand": "Jeep",
-        "model": "Renegade",    
+        "model": "Renegade",
         "year": 2019
     }
-
 ]

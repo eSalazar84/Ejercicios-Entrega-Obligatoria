@@ -9,14 +9,26 @@ import * as fs from "fs";
 import { table } from "console";
 import { Auto } from "./claseAuto";
 
-const listadoAuto = JSON.parse(fs.readFileSync(`./autos.json`,`utf-8`)) ;
+const listadoAuto:string[]=[];
+
+//const fs = require(`fs`);
+try {
+  const listadoAuto = require(`./autos.json`);
+  const listadoAutoEdit = fs.readFileSync(`./autos.json`, `utf8`);
+  const listado = JSON.parse(listadoAutoEdit);  
+} catch (error) {
+  const message:string=`Ocurrio un error...`;  
+  fs.writeFileSync(`./errrores.txt`, message, `utf8`)
+}
+
+//const listadoAuto = JSON.parse(fs.readFileSync(`./autos.json`,`utf-8`)) ;
 
 class RegistroAutomotor {
-  todo(array: string): void {
+  todo(array: any): void {
     console.log(`Listado de Autos en el Registro:`);
     return table(array);
   }
-  insertar(car: Auto, array: Auto[]): string {
+  insertar(car: any, model:string|number,year:number, array: any): string {
     if (array.push(car)) {
       return `Se ha añadido ${car.brand} a la base de datos. La base de datos del Registro queda de la siguiente forma:`;
     } else {
@@ -24,11 +36,13 @@ class RegistroAutomotor {
     }
   }
   consultar(brand: string, array: Auto[]): any {
-    let autoEncontrado: Auto | undefined = array.find((auto) => auto.brand === brand);
+    let autoEncontrado: Auto | undefined = array.find(
+      (auto) => auto.brand === brand
+    );
     if (autoEncontrado) {
       console.log(`${brand} existe en el Registro.`);
       //console.table(autoEncontrado);
-      return autoEncontrado
+      return autoEncontrado;
     } else {
       console.log(`${brand} no existe en el Registro.`);
     }
@@ -57,24 +71,7 @@ class RegistroAutomotor {
     }
   }
 }
-/* const auto_1: Auto = new Auto(`Peugeot`, `206`, 2012);
-const auto_2: Auto = new Auto(`Ford`, `Ecosport`, 2015);
-const auto_3: Auto = new Auto(`Chevrolet`, `Corsa`, 2020);
-const auto_4: Auto = new Auto(`Fiat`, `Palio`, 2000);
-const auto_5: Auto = new Auto(`Citroen`, `Xara`);
-const auto_6: Auto = new Auto(`Wolkswagen`, `Gol`, 2010); */
 
-//const listadoAutos: Auto[] = [auto_1, auto_2, auto_3, auto_4, auto_5, auto_6];
-//const registro: RegistroAutomotor = new RegistroAutomotor();
-const auto_7: Auto = new Auto(`Ferrari`, `Testarrossa`, 2023);
-/* registro.insertar(auto_7, listadoAutos);
-registro.eliminar(`Fiat`, listadoAutos);  //Chequeado y modificado
-registro.consultar(`Fiat`,listadoAutos); */
-//registro.todo(listadoAutos);
-//console.log(registro.todo(listadoAutos));
-
-//
-
-const registro: RegistroAutomotor = new RegistroAutomotor();
-registro.todo(listadoAuto); // chequeado y OK
-registro.insertar(auto_7,listadoAuto);  // NO ANDA COMIENZO
+const registro1: RegistroAutomotor = new RegistroAutomotor();
+registro1.todo(listado); // chequeado y OK
+registro1.insertar("Ferrari","Testarrossa",2006,listado); // NO ANDA COMIENZO

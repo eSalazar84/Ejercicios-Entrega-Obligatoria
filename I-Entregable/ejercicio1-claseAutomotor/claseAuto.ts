@@ -60,18 +60,3 @@ console.log(peugeot);
 console.log(ford);
 console.log(fiat);
 
-
-
-/* peugeot.switchOnOff();
-peugeot.speedUp();
-peugeot.speedUp();
-peugeot.speedUp();
-peugeot.speedUp();
-peugeot.speedDown();
-peugeot.speedDown();
-peugeot.speedDown();
-peugeot.speedDown();
-peugeot.speedDown();
-console.log(peugeot);
-console.log(ford);
-console.log(fiat); */
