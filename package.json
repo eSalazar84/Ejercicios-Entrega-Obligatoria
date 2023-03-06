@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/eSalazar84/Ejercicios-Entrega-Obligatoria/issues"
   },
-  "homepage": "https://github.com/eSalazar84/Ejercicios-Entrega-Obligatoria#readme"
+  "homepage": "https://github.com/eSalazar84/Ejercicios-Entrega-Obligatoria#readme",
+  "devDependencies": {
+    "@types/node": "^18.14.6"
+  }
 }
