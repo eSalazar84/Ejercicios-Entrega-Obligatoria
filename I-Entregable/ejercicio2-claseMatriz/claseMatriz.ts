@@ -9,11 +9,11 @@ export class Matrix {
     this.elementosEjeX = elemEjeX;
     this.elementosEjeY = elemEjeY;
   }
-  getValue(x: number, y: number): string {
+  get(x: number, y: number): string {
     if (x > this.elementosEjeX || y > this.elementosEjeY || x,y <= 0) {
       return `Los valores estan por fuera de la Matriz, intente con otros valores`;
     } else {
-      let mtrx: number[][] = [[]];
+      const mtrx: number[][] = [[]];
       for (let i = 1; i <= this.elementosEjeX; i++) {
         if (i >= 0) mtrx.push([]);
         for (let j = 1; j <= this.elementosEjeY; j++) {
@@ -26,7 +26,7 @@ export class Matrix {
   }
 }
 
-const matrix_ejemplo: Matrix = new Matrix(8,6);
-console.log(matrix_ejemplo.getValue(1,1));
+const matrix_ejemplo: Matrix = new Matrix(10,5);
+console.log(matrix_ejemplo.get(3,3));
 
 

@@ -5,23 +5,22 @@ con métodos para consultar por un auto en un
 listado, borrar, actualizar y dar de alta
 Partir de la función ya implementada para leer archivos */
 
-import { Auto } from "../ejercicio1-claseAuto/claseAuto";
+import * as fs from "fs";
+import { table } from "console";
+import { Auto } from "./claseAuto";
+
+const listadoAuto = JSON.parse(fs.readFileSync(`./autos.json`,`utf-8`)) ;
 
 class RegistroAutomotor {
-  todo(array: any): void {
+  todo(array: string): void {
     console.log(`Listado de Autos en el Registro:`);
-    console.table(array);
+    return table(array);
   }
-  insertar(car: Auto, array: Auto[]): void {
+  insertar(car: Auto, array: Auto[]): string {
     if (array.push(car)) {
-      console.log(
-        `Se ha añadido ${car.brand} a la base de datos. La base de datos del Registro queda de la siguiente forma:`
-      );
-      console.table(array);
+      return `Se ha añadido ${car.brand} a la base de datos. La base de datos del Registro queda de la siguiente forma:`;
     } else {
-      console.log(
-        `El libro ${car.brand} no se ha podido añadir a la biblioteca`
-      );
+      return `El libro ${car.brand} no se ha podido añadir a la biblioteca`;
     }
   }
   consultar(brand: string, array: Auto[]): any {
@@ -34,17 +33,13 @@ class RegistroAutomotor {
       console.log(`${brand} no existe en el Registro.`);
     }
   }
-  modificar(brand: string, array: Auto[], dato: string): void {
+  modificar(brand: string, array: Auto[], dato: string): string {
     let autoModificar: Auto | undefined = this.consultar(brand, array);
-    console.log(autoModificar);
-    
     if (autoModificar) {
       autoModificar.brand = dato;
-      console.log(
-        `El auto ${brand} ha sido modificado y ahora se llama ${dato}`
-      );
+      return `El auto ${brand} ha sido modificado y ahora se llama ${dato}`;
     } else {
-      console.log("El Registro no se ha podido modificar");
+      return "El Registro no se ha podido modificar";
     }
   }
   eliminar(brand: string, array: Auto[]): any {
@@ -62,19 +57,24 @@ class RegistroAutomotor {
     }
   }
 }
-const auto_1: Auto = new Auto(`Peugeot`, `206`, 2012);
+/* const auto_1: Auto = new Auto(`Peugeot`, `206`, 2012);
 const auto_2: Auto = new Auto(`Ford`, `Ecosport`, 2015);
 const auto_3: Auto = new Auto(`Chevrolet`, `Corsa`, 2020);
 const auto_4: Auto = new Auto(`Fiat`, `Palio`, 2000);
 const auto_5: Auto = new Auto(`Citroen`, `Xara`);
-const auto_6: Auto = new Auto(`Wolkswagen`, `Gol`, 2010);
+const auto_6: Auto = new Auto(`Wolkswagen`, `Gol`, 2010); */
 
-const listadoAutos: Auto[] = [auto_1, auto_2, auto_3, auto_4, auto_5, auto_6];
-const registro: RegistroAutomotor = new RegistroAutomotor();
+//const listadoAutos: Auto[] = [auto_1, auto_2, auto_3, auto_4, auto_5, auto_6];
+//const registro: RegistroAutomotor = new RegistroAutomotor();
 const auto_7: Auto = new Auto(`Ferrari`, `Testarrossa`, 2023);
-registro.insertar(auto_7, listadoAutos);
+/* registro.insertar(auto_7, listadoAutos);
 registro.eliminar(`Fiat`, listadoAutos);  //Chequeado y modificado
-registro.consultar(`Fiat`,listadoAutos);
-registro.modificar(`Wolkswagen`, listadoAutos,`Volkswagen`);
-registro.todo(listadoAutos);
+registro.consultar(`Fiat`,listadoAutos); */
+//registro.todo(listadoAutos);
+//console.log(registro.todo(listadoAutos));
 
+//
+
+const registro: RegistroAutomotor = new RegistroAutomotor();
+registro.todo(listadoAuto); // chequeado y OK
+registro.insertar(auto_7,listadoAuto);  // NO ANDA COMIENZO
