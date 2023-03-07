@@ -1,4 +1,4 @@
-/* Ejercicio 3
+/* Ejercicio 2
 Implementar la clase Matriz. En vez de consultar los valores con los corchetes, 
 se debe hacer (desde afuera) a través de un método → get(x, y) */
 
@@ -27,6 +27,6 @@ export class Matrix {
 }
 
 const matrix_ejemplo: Matrix = new Matrix(10,5);
-console.log(matrix_ejemplo.get(3,3));
+console.log(matrix_ejemplo.get(5,5));
 
 
